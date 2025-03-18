@@ -12,6 +12,14 @@
   font-family: 'Farro', Arial, Helvetica, sans-serif;
 }
 
+.dark-yellow{
+  background-color: #ecb911e1;
+}
+
+.light-yellow{
+  background-color: #f1ffabda;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
