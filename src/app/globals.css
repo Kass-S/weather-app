@@ -6,18 +6,18 @@
 
 @font-face{
   font-family: 'Farro';
-  src: url('/public/assets/fonts/Farro-Regular.ttf');
+  src: url('/assets/fonts/Farro-Light.ttf');
 }
 .font-farro{
   font-family: 'Farro', Arial, Helvetica, sans-serif;
 }
 
 .dark-yellow{
-  background-color: #ecb911e1;
+  background-color: #ecb911d0;
 }
 
 .light-yellow{
-  background-color: #f1ffabda;
+  background-color: #f1ffabbe;
 }
 
 @theme inline {
