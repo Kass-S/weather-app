@@ -1,7 +1,11 @@
+'use client'
+
 import React from 'react'
 import { Card, CardContent, CardHeader } from './ui/card'
+import { apiCallGeo } from '@/lib/service'
 
 const WeeksWeather = () => {
+
   return (
     <div>
         <Card className='max-w-[15rem] min-h-[25rem] max-h-[30rem] p-0 light-yellow border-0'>

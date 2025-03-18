@@ -2,8 +2,17 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader } from './ui/card'
+import { apiCallCurrent, apiCallGeo } from '@/lib/service'
 
 const TodaysWeather = () => {
+    const test = async () => {
+        // const testData = await apiCallGeo('stockton');
+        // console.log(testData[0]);
+        // const testCurrent = await apiCallCurrent(37.9577016, -121.2907796);
+        // console.log(testCurrent.weather[0].main);
+
+    }
+    //test()
     
   return (
     <div>
