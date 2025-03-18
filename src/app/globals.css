@@ -4,6 +4,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face{
+  font-family: 'Farro';
+  src: url('/public/assets/fonts/Farro-Regular.ttf');
+}
+.font-farro{
+  font-family: 'Farro', Arial, Helvetica, sans-serif;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
