@@ -9,8 +9,16 @@ const apiCallGeo = async (city: string) => {
 
 const apiCallCurrent = async (lat: number, lon: number) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKEY}`);
-    const data:CurrentCall = await response.json();
+    const data: CurrentCall = await response.json();
     return data;
 }
 
-export {apiCallGeo, apiCallCurrent}
+const apiCall5Forcast = async (lat: number, lon: number) => {
+    const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKEY}`
+      );
+      const data = await response.json();
+      return data;
+}
+
+export {apiCallGeo, apiCallCurrent, apiCall5Forcast}

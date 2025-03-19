@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardHeader } from './ui/card'
-import { apiCallCurrent, apiCallGeo } from '@/lib/service'
+import { apiCallCurrent, apiCallGeo, apiCall5Forcast } from '@/lib/service'
 
 const TodaysWeather = () => {
     const test = async () => {
@@ -10,9 +10,10 @@ const TodaysWeather = () => {
         // console.log(testData[0]);
         // const testCurrent = await apiCallCurrent(37.9577016, -121.2907796);
         // console.log(testCurrent.weather[0].main);
-
+        const test5Day = await apiCall5Forcast(37.9577016, -121.2907796);
+        console.log(test5Day);
     }
-    //test()
+    test()
     
   return (
     <div>
@@ -30,7 +31,7 @@ const TodaysWeather = () => {
                         <p className='text-center text-2xl pt-2'>high/low</p>
                     </div>
                     <div>
-                        <img className='flex justify-items-center' src="" alt="weather icon" />
+                        {/* <img className='flex justify-items-center' src="" alt="weather icon" /> */}
                         <p className='text-2xl text-center'>weather</p>
                     </div>
                 </div>
