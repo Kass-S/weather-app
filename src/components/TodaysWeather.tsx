@@ -6,10 +6,10 @@ import { apiCallCurrent, apiCallGeo, apiCall5Forcast } from '@/lib/service'
 
 const TodaysWeather = () => {
     const test = async () => {
-        // const testData = await apiCallGeo('stockton');
-        // console.log(testData[0]);
-        // const testCurrent = await apiCallCurrent(37.9577016, -121.2907796);
-        // console.log(testCurrent.weather[0].main);
+        const testData = await apiCallGeo('stockton');
+        console.log(testData[0]);
+        const testCurrent = await apiCallCurrent(37.9577016, -121.2907796);
+        console.log(testCurrent.weather[0].main);
         const test5Day = await apiCall5Forcast(37.9577016, -121.2907796);
         console.log(test5Day);
     }
