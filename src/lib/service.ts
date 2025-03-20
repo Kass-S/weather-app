@@ -1,4 +1,4 @@
-import { CurrentCall, GeoCall } from "@/interfaces/interfaces";
+import { CurrentCall, Day5, GeoCall } from "@/interfaces/interfaces";
 import { APIKEY } from "./environment";
 
 const apiCallGeo = async (city: string) => {
@@ -17,7 +17,7 @@ const apiCall5Forcast = async (lat: number, lon: number) => {
     const response = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKEY}`
       );
-      const data = await response.json();
+      const data: Day5 = await response.json();
       return data;
 }
 
