@@ -21,7 +21,7 @@ export default function Home() {
   const WeatherCall = async (cityInput: string) => {
     const geoData = await apiCallGeo(cityInput);
     console.log(geoData[0]);
-    
+
     if(geoData[0].name.toLowerCase() == cityInput.toLowerCase()){
       const currentData = await apiCallCurrent(geoData[0].lat, geoData[0].lon);
       console.log(currentData);
@@ -54,12 +54,12 @@ export default function Home() {
 
   return (
     <div className="m-0 min-h-screen min-w-screen bg-[url(/assets/weatherbg.png)] bg-no-repeat bg-cover font-farro float-right">
-      <div className="grid grid-rows-3 grid-cols-2 mx-36 mt-10">
+      <div className="grid sm:grid-rows-3 sm:grid-cols-2 md:mx-36 mt-10">
         <div className="row-span-3">
           <TodaysWeather city={currentCity} country={currentCountry} temp={currenttemp} minTemp={minTemp} maxTemp={maxTemp} imgIcon={currentImgIcon} todaysWeather={todaysWeather} />
         </div>
-        <div className="col-[2] flex justify-end max-h-10">
-          <input type="text" placeholder="Search a City" className="light-yellow pr-28 pl-10 rounded-md" onKeyDown={(event) => {
+        <div className="sm:col-[2] flex justify-center sm:justify-end sm:max-h-10 mt-4 sm:mt-0">
+          <input type="text" placeholder="Search a City" className="light-yellow py-2 sm:pr-28 pl-10 rounded-md" onKeyDown={(event) => {
             if(event.key === "Enter"){
               
               WeatherCall((event.target as HTMLInputElement).value);
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
       
       {/* need to map this out */}
-      <div className="mx-17 mt-12">
+      <div className="sm:mx-17 mt-8 sm:mt-12">
         <WeeksWeather temp={weekTemp} imgIcon={weekImgIcon} weekWeather={weekWeather} dayofweek="placeholder" />
       </div> 
     </div>
