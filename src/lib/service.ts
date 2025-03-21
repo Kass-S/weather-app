@@ -1,5 +1,6 @@
 import { CurrentCall, Day5, GeoCall } from "@/interfaces/interfaces";
-import { APIKEY } from "./environment";
+
+const APIKEY = process.env.NEXT_PUBLIC_MY_API_KEY;
 
 const apiCallGeo = async (city: string) => {
     const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKEY}`);
