@@ -18,8 +18,8 @@ export default function Home() {
   const [weekWeather, setWeekWeather] = useState('');
     
     
-  const WeatherCall = async () => {
-    const geoData = await apiCallGeo('stockton');
+  const WeatherCall = async (cityInput: string) => {
+    const geoData = await apiCallGeo(cityInput);
     console.log(geoData[0]);
 
     const currentData = await apiCallCurrent(geoData[0].lat, geoData[0].lon);
@@ -55,7 +55,12 @@ export default function Home() {
           <TodaysWeather city={currentCity} country={currentCountry} temp={currenttemp} minTemp={minTemp} maxTemp={maxTemp} imgIcon={currentImgIcon} todaysWeather={todaysWeather} />
         </div>
         <div className="col-[2] ">
-          <input type="text" placeholder="Search a City" className="light-yellow p-2 rounded-md" />
+          <input type="text" placeholder="Search a City" className="light-yellow p-2 rounded-md" onKeyDown={(event) => {
+            if(event.key === "Enter"){
+              WeatherCall((event.target as HTMLInputElement).value);
+              (event.target as HTMLInputElement).value ='';
+            }
+          }} />
         </div>        
       </div>
       
