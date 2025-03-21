@@ -1,10 +1,8 @@
 export interface GeoCall {
     country: string,
     lat: number,
-    local_names: {en: string},
     lon: number,
-    name: string,
-    state: string
+    name: string
 }
 
 export interface CurrentCall {
@@ -40,6 +38,7 @@ export interface Day5 {
 }
 
 interface List {
+    dt_text: string
     main: {
         temp: number
     },
