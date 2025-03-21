@@ -17,9 +17,8 @@ interface TodaysWeatherInterface {
 const TodaysWeather = (props: TodaysWeatherInterface) => {
     
   return (
-    // className='mx-20 mt-15 mb-15'
     <div >
-        <Card className='max-w-[33rem] min-h-[12rem] max-h-[12rem] p-0 light-yellow border-0 mt-5 gap-0'>
+        <Card className='max-w-[33rem] min-h-[12rem] max-h-[12rem] p-0 light-yellow border-0 gap-0'>
             <CardHeader className='dark-yellow rounded-t-xl'>
                 <div className='flex justify-between py-1 items-center'>
                     <p className='text-xl'>{props.city}, {props.country}</p>
