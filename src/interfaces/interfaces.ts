@@ -38,7 +38,7 @@ export interface Day5 {
 }
 
 interface List {
-    dt_text: string
+    dt: number
     main: {
         temp: number
     },

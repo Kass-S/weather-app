@@ -46,7 +46,7 @@ export default function Home() {
 
     
   }
-    
+  
 
   useEffect(() => {
     //WeatherCall();
@@ -60,14 +60,18 @@ export default function Home() {
         <div className="row-span-3">
           <TodaysWeather city={currentCity} country={currentCountry} temp={currenttemp} minTemp={minTemp} maxTemp={maxTemp} imgIcon={currentImgIcon} todaysWeather={todaysWeather} />
         </div>
-        <div className="sm:col-[2] flex justify-center sm:justify-end sm:max-h-10 mt-4 sm:mt-0">
-          <input type="text" placeholder="Search a City" className="light-yellow py-2 lg:pr-28 pl-10 rounded-md" onKeyDown={(event) => {
-            if(event.key === "Enter"){
-              
-              WeatherCall((event.target as HTMLInputElement).value);
-              (event.target as HTMLInputElement).value ='';
-            }
-          }} />
+        <div className="sm:col-[2] flex justify-center sm:justify-self-end sm:max-h-10 mt-4 sm:mt-0 ">
+          <div className="w-[100%]">
+            <img src="/assets/search-icon.png" alt="search icon" className="position absolute min-w-1 max-w-10 p-[.3rem]" />
+            <input type="text" placeholder="Search a City" className="light-yellow py-2 lg:pr-28 pl-10 rounded-md" onKeyDown={(event) => {
+              if(event.key === "Enter"){
+                
+                WeatherCall((event.target as HTMLInputElement).value);
+                (event.target as HTMLInputElement).value ='';
+              }
+            }} />
+          </div>
+          
         </div>        
       </div>
       
@@ -75,7 +79,7 @@ export default function Home() {
       <div className="mx-20 lg:mx-36 mt-4 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
         {
           weekWeather.map((day, index) => (
-            <WeeksWeather key={index} temp={Math.round(day.main.temp)} imgIcon={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} weekWeather={day.weather[0].description} dayofweek="placeholder" />
+            <WeeksWeather key={index} temp={Math.round(day.main.temp)} imgIcon={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`} weekWeather={day.weather[0].description} dayofweek={new Date(day.dt * 998).toLocaleDateString("en-US", { weekday: "long"})} />
           ))
         }
         
