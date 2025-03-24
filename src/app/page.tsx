@@ -12,7 +12,6 @@ export default function Home() {
   const [maxTemp, setMaxTemp] = useState(0);
   const [currentImgIcon, setCurrentImgIcon] = useState('');
   const [todaysWeather, setTodaysWeather] = useState('');
-
   // const [weekTemp, setWeekTemp] = useState(0);
   // const [weekImgIcon, setWeekImgIcon] = useState('');
   const [weekWeather, setWeekWeather] = useState<any[]>([]);
@@ -38,18 +37,40 @@ export default function Home() {
 
       
       const filter5Day = data5Day.list.filter((list, index) => index % 8 == 0);
-
       // setWeekTemp(Math.round(data5Day.list[4].main.temp));
       // setWeekImgIcon(data5Day.list[4].weather[0].icon);
       setWeekWeather(filter5Day.slice(0, 5));
     }
-
-    
   }
   
+  const GeolocationWeather = async (lat: number, lon: number) => {
+    try {const currentData = await apiCallCurrent(lat, lon);
+    console.log(currentData);
+    const data5Day = await apiCall5Forcast(lat, lon);
+    console.log(data5Day);
+
+    setCurrentCity(currentData.name);
+    setCurrentCountry(currentData.sys.country);
+    setCurrentTemp(Math.round(currentData.main.temp));
+    setMinTemp(Math.round(currentData.main.temp_min));
+    setMaxTemp(Math.round(currentData.main.temp_max));
+    setCurrentImgIcon(currentData.weather[0].icon);
+    setTodaysWeather(currentData.weather[0].description); 
+    const filter5Day = data5Day.list.filter((list, index) => index % 8 == 0);
+    setWeekWeather(filter5Day.slice(0, 5));} catch(error){
+      console.log("something went wrong with the geolocation");
+    }
+  }
 
   useEffect(() => {
-    //WeatherCall();
+    if(navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((position) => {
+        GeolocationWeather(position.coords.latitude, position.coords.longitude);
+      },(error) => {
+        console.log("Unable to retrieve geolocation")
+        console.error(error);
+      })
+    }
   }, [])
 
 
